@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hasantayyar/get-post.git",
-                "reference": "194bf6fea882236ffe48cdb50dfb75a2fdb5c802"
+                "reference": "4b086650a70fdd2e64fded76deefa6fc4855a582"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hasantayyar/get-post/zipball/194bf6fea882236ffe48cdb50dfb75a2fdb5c802",
-                "reference": "194bf6fea882236ffe48cdb50dfb75a2fdb5c802",
+                "url": "https://api.github.com/repos/hasantayyar/get-post/zipball/4b086650a70fdd2e64fded76deefa6fc4855a582",
+                "reference": "4b086650a70fdd2e64fded76deefa6fc4855a582",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                 "http",
                 "request"
             ],
-            "time": "2014-07-26 23:52:43"
+            "time": "2014-07-27 00:00:23"
         }
     ],
     "packages-dev": [
