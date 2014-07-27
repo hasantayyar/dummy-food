@@ -2,7 +2,7 @@
 include './vendor/autoload.php';
 use Hasantayyar\GetPost;
 
-$cacheFile = './cache/'.date('HdmY',time());
+$cacheFile = './cache/'.date('HdmY',time()).".json";
 if(file_exists($cacheFile)){
 	$jsonData = file_get_contents($cacheFile);	
 }else{
@@ -24,7 +24,21 @@ if(file_exists($cacheFile)){
 	fclose($f);
 }
 
-$data =  json_decode($jsonData);
-$rand = array_rand($data->value->items); 
+$data =  json_decode($jsonData,1);
+$rand = array_rand($data['value']['items']); 
+$randItem = $data['value']['items'][$rand];
+$randPicUrl = $randItem['media:content']['url'];
 
-echo json_encode($data->value->items[$rand]);
+$picCacheFile = './cache/pictures/'.md5($randPicUrl)."jpg";
+if(file_exists($picCacheFile )){
+	$content = file_get_contents($picCacheFile);
+}else{
+	$get = new Hasantayyar\GetPost\Get($randPicUrl);
+	$content = $get->send();
+	$f = fopen( $picCacheFile,'w' );
+	fwrite($f, $content);
+	fclose($f);
+}
+header("Content-Type: image/jpeg");
+header("Content-Length: " .(string)(filesize($picCacheFile)) );
+echo isset($content)?$content:NULL;
