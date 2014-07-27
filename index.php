@@ -29,7 +29,7 @@ $rand = array_rand($data['value']['items']);
 $randItem = $data['value']['items'][$rand];
 $randPicUrl = $randItem['media:content']['url'];
 
-$picCacheFile = './cache/pictures/'.md5($randPicUrl)."jpg";
+$picCacheFile = './cache/pictures/'.md5($randPicUrl).".jpg";
 if(file_exists($picCacheFile )){
 	$content = file_get_contents($picCacheFile);
 }else{
